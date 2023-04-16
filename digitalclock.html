@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Digital Clock</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #222;
+        color: rgb(224, 5, 5); 
+      }
+      
+      h1 {
+        font-size: 4rem;
+        margin-top: 2rem;
+        position: relative;
+        animation: scale-in 0.5s ease-out;
+      }
+      
+      @keyframes scale-in {
+        0% {
+          transform: scale(0);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+      
+      #clock {
+        display: inline-block;
+        padding: 1rem 2rem;
+        background-color: orange;
+        border-radius: 2rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      }
+      
+      #clock span {
+        display: inline-block;
+        font-size: 6rem;
+        font-weight: bold;
+        margin: 1rem;
+        padding: 0.5rem;
+        background-color: #16a085;
+        border-radius: 1rem;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
+      }
+      
+      #clock span:nth-child(odd) {
+        background-color: #1abc9c;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span id="clock"></span></h1>
+    <script>
+      function updateClock() {
+        var now = new Date();
+        var hours = now.getHours();
+        var minutes = now.getMinutes();
+        var seconds = now.getSeconds();
+        document.getElementById('clock').innerHTML = hours + ':' + minutes + ':' + seconds;
+      }
+      setInterval(updateClock, 1000);
+    </script>
+  </body>
+</html>
